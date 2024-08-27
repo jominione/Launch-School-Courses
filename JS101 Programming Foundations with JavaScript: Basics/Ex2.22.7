@@ -1,0 +1,26 @@
+// What will the following code log to the console and why? Don't run it until
+// you have tried to answer.
+
+let num = 1;
+
+while (num < 3) {
+  let num = 5;
+  num += 1;
+}
+
+console.log(num);
+
+// [Wrong] Solution: Will output 1. Within the while loop a new variable num is 
+// declared and initialised. This variable is visible only within the block.
+// So when the code completes the while loop, the parameter num refers to the
+// global variable which still has value 1.
+
+// This doesn't log anything to the console. This code results in an infinite
+// loop, which will eventually time out. Line 4 declares and initialises a 
+// variable num to the number 5. This is a different variable to the num
+// declared and initialised to 1 on line 1, and exists within the scope of the
+// block defined by the curly braces; it is this num that is incremented on
+// line 5. The condition for the while loop, however, references the num
+// declared on line 1, not the one within the scope of the block. The condition
+// for ending the while loop is therefore never met, resulting in an infinite
+// loop.

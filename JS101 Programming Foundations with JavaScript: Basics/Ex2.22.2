@@ -1,0 +1,17 @@
+// What will the following code log to the console and why? Don't run it until
+// you have tried to answer.
+
+let num = 5;
+
+function myFunc() {
+  console.log(num);
+  num = 10;
+}
+
+myFunc();
+console.log(num);
+
+// Solution: Will output 5 and then 10. Like the previous exercise num declared
+// and initialised with value 5 is visible and accessible within scope of the
+// myFunc function. When myFunc is invoked the log method outputs the parameter 
+// num which has value 5. It is then reassigned to value 10.

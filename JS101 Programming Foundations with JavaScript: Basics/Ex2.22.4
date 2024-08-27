@@ -1,0 +1,17 @@
+// What will the following code log to the console and why? Don't run it until
+// you have tried to answer.
+
+let num = 5;
+
+function myFunc() {
+  console.log(num);
+  let num = 10;
+}
+
+myFunc();
+console.log(num);
+
+// Solution: Will raise a ReferenceError that num not initialised. The new 
+// variable declared in myFunc is initialised after it is already being called. 
+// When num is called within myFunc it is looking for num within its local 
+// scope. Since num is not initialised when it is executed will raise an error.

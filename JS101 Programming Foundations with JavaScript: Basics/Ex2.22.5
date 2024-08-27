@@ -1,0 +1,22 @@
+// What will the following code log to the console and why? Don't run it until
+// you have tried to answer.
+
+let num = 5;
+
+function myFunc(num) {
+  num = 10;
+}
+
+myFunc();
+console.log(num);
+
+// Solution: Will output 5. The function myFunc initialises a parameter 
+// variable num that shadows the global variable num. When myFunc is invoked
+// without an argument, JavaScript default assigns num as undefined.
+
+// When the myFunc function is invoked, due to the function parameter num
+// JavaScript creates a new variable num within the scope of the function. This
+// variable blocks access to the variable of the same name declared and 
+// initialised in the global scope. That variable cannot therefore be 
+// reassigned by the function and so retains its initial value of 5, which
+// is what is logged.

@@ -1,0 +1,18 @@
+// What will the following code log to the console and why? Don't run it until
+// you have tried to answer.
+
+let num = 5;
+
+function myFunc() {
+  let num = 10;
+}
+
+myFunc();
+console.log(num);
+
+// Solution: Will output 5. The num declared within function myFunc is not
+// visible outside of its local scope. When last line of code is executed
+// it logs the value of num which is still 5.
+
+// The variable initialised in myFunc is a new variable rather than the 
+// reassignment of the variable on line 1.
