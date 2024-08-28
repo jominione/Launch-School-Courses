@@ -1,0 +1,23 @@
+// What will the following code log to the console and why? Don't run it until 
+// you have tried to answer.
+
+let myWords = ['Hello', 'Goodbye'];
+let myWord = 'Hi';
+myWords[0] = myWord;
+myWord = 'Hello';
+
+console.log(myWords);
+console.log(myWord);
+
+// Solution: Will output ['Hi', 'Goodbye'] and 'Hello'. The element at index 0
+// of the array referenced by myWords is reassigned to a new value, the string
+// stored referenced by variable myWord. Because string is a primitive type,
+// index 0 of the array referenced by myWords and the myWord variable each
+// reference different strings at different memory addresses, even though those
+// strings have the same value. We then reassign myWord with new value, the
+// string 'Hello'. This has no impact on myWords because elements within the
+// array myWords references point to different memory addresses.
+
+// The values we are dealing with are primitives, and the value of these 
+// primitive values are stored at different memory addresses. Changing the 
+// value of one does not affect the other.

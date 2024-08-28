@@ -1,0 +1,25 @@
+// What will the following code log to the console and why? Don't run it until 
+// you have tried to answer.
+
+function changeMyWord(word) {
+  console.log(word);
+  word = word.toUpperCase();
+}
+
+let myWord = 'Hello';
+changeMyWord(myWord);
+console.log(myWord);
+
+// Solution: Will output 'Hello' and 'Hello'. The variable myWord is a 
+// primitive value so can't be mutated. When passed to the changeMyWord 
+// function log the string value 'Hello'. The program then invokes console.log
+// calling myWord which logs the value 'Hello'.
+
+// Because we are dealing with a primitive value, the myWord variable and
+// the word function parameter point to different places in memory.
+
+// Essentially, passing in myWord as an argument to the changeMyWord function
+// invocation acts like pass-by-value. Because of this, nothing we do with
+// the word parameter in the function, such as calling toUpperCase() on it
+// and re-assiging word, will have any effect on the value of the myWord
+// variable. Therefore, when we log the value of myWord, 'Hello' is the output.

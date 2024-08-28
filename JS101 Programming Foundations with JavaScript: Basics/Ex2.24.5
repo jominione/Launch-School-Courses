@@ -1,0 +1,25 @@
+// What will the following code log to the console and why? Don't run it until 
+// you have tried to answer.
+
+let myWords = ['Hello', 'Goodbye'];
+let myWord = myWords[0];
+myWords[0] = 'Hi';
+
+console.log(myWords);
+console.log(myWord);
+
+// Solution: Will output ['Hi', 'Goodbye'] and 'Hello'. Variable myWord is
+// initialised with primitive type, not reference type. Primitive types are
+// stored in memory where the variable points to. The array which myWords 
+// points to then is mutated at index 0 and reassigned with string value 'Hi'.
+// The program therefore logs ['Hi', 'Goodbye'] and 'Hello'.
+
+// We declare and initialize another variable, myWord, to the element at index 
+// 0 of the array referenced by myWords, which is the string 'Hello'. Because 
+// that string is a primitive type, index 0 of the array and the myWord 
+// variable each reference different strings at different memory addresses, 
+// even though those strings have the same value.
+
+// We then reassign index 0 of the myWords array to a new value, the string 
+// 'Hi'. This changes the value stored at index 0 of the array, but has no 
+// effect on the value stored by the myWord variable.

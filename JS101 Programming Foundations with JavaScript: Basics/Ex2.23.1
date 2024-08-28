@@ -1,0 +1,16 @@
+// What will the following code log to the console and why? Don't run it until 
+// you have tried to answer.
+
+let myWord = 'Hello';
+myWord.concat(' there.');
+
+console.log(myWord);
+
+// Solution: Output 'Hello'. The concat method concats myWord and ' there. '
+// string and returns new object, not mutate myWord. Therefore myWord has not
+// been mutated and logs original value 'Hello'.
+
+// The myWord variable is assigned to a string, which as a primitive is 
+// immutable. Calling concat on the string returns a new string with the
+// string there. appended to it. This doesn't affect the original string and
+// we don't do anything with the return value.

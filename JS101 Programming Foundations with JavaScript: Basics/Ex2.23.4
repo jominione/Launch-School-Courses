@@ -1,0 +1,14 @@
+// What will the following code log to the console and why? Don't run it until 
+// you have tried to answer.
+
+let myWords = ['Hello'];
+myWords.concat(['Goodbye']);
+
+console.log(myWords);
+
+// Solution: Will output ['Hello'].
+
+// Although myWords is assigned to an array, which is an object and therefore
+// mutable, the Array.concat method doesn't mutate the array it is called on;
+// instead returns a new array. Just because objects are mutable, we shouldn't
+// assume that all methods called on an object will mutate it.

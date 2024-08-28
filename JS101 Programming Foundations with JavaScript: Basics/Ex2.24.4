@@ -1,0 +1,25 @@
+// What will the following code log to the console and why? Don't run it until 
+// you have tried to answer.
+
+let myWords = ['Hello', 'Goodbye'];
+let myOtherWords = myWords;
+myWords = ['Hi', 'Bye'];
+
+console.log(myWords);
+console.log(myOtherWords);
+
+// Solution: Will output ['Hi', 'Bye'] and ['Hello', 'Goodbye']. Variable
+// myOtherWords is assigned the value of myWords. Both variables point to same
+// reference in memory that hold the array.
+// When myWords is reassigned a different array, it stores the references to
+// memory that points to array value but this has no effect on myOtherWords
+// which point to original array.
+
+// Both variables have as their value the memory address where the array is
+// stored. The variable myWords is reassigned to a different value. In this
+// case we're reassigning it to another array, but we could equally have
+// reassigned it to a primitive value. The important point is that the variable
+// now points to a different value and so the two variables no longer have
+// the same value (the memory address where the ['Hello', 'Goodbye'] array
+// is stored). When we log each variable, different values are therefore 
+// output.

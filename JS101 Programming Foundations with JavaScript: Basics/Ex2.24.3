@@ -1,0 +1,29 @@
+// What will the following code log to the console and why? Don't run it until 
+// you have tried to answer.
+
+let myWords = ['Hello', 'Goodbye'];
+let myOtherWords = myWords;
+myWords[0] = 'Hi';
+
+console.log(myWords);
+console.log(myOtherWords);
+
+// Solution: Output ['Hi', 'Goodbye'] twice. Variables point to objects in
+// memory. When myOtherWords was initialised with the value of myWords it
+// points to array with the same value but stored at different memory
+// locations. The elements of the array are primitive values and point to
+// same memory location. So when myWords indexed at 0 is reassigned string 
+// value 'Hi' it mutates the array object stored at both myWords and 
+// myOtherWords.
+
+// Variable myWords is initialised to an array, which is a reference type.
+// With reference types, the value stored in memory that the variable points
+// to is a reference to another location in memory. Both variables have as
+// their value the memory address where the array is stored.
+
+// We're not reassigning the myWords variable, instead we're changing the
+// value of one of the array elements that the myWords variable references.
+
+// Because we've changed, or mutated, the array, and because both variables
+// references the same array, when we log both variables we get the same 
+// output.

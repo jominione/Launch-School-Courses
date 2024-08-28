@@ -1,0 +1,17 @@
+// What will the following code log to the console and why? Don't run it until 
+// you have tried to answer.
+
+let myWords = ['Hello'];
+myWords[0].toUpperCase();
+
+console.log(myWords);
+
+// Solution: Will output ['Hello']. Elements of an array can be mutated or 
+// reassigned with a new value but the .toUpperCase method creates a new string
+// but not assigned to any variable. Hence the myWords array is not mutated
+// and console.log logs original value.
+
+// We're calling the toUpperCase() methon on the string at index 0 of the
+// array. Being primitive types, strings are immutable, so the method has 
+// no effect on the string (it instead returns a new string), and we're not
+// mutating the array or changing the value at index 0.

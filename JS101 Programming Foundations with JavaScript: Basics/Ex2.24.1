@@ -1,0 +1,17 @@
+// What will the following code log to the console and why? Don't run it until 
+// you have tried to answer.
+
+let myWord = 'Hello';
+let myOtherWord = myWord;
+
+console.log(myWord);
+console.log(myOtherWord);
+
+// Solution: Output 'Hello' and 'Hello'. Variables with primitive values are
+// stored at the memory location associated with the variable. So when 
+// myOtherWord is initialised to the value of myWord, myOtherWord stores the value
+// 'Hello'. So both output 'Hello'.
+
+// Both variables point to a string with the value of 'Hello'. Even though 
+// the strings have the same value they are different strings stored at 
+// different memory addresses.

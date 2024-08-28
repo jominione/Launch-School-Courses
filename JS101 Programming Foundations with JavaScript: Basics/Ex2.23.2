@@ -1,0 +1,18 @@
+// What will the following code log to the console and why? Don't run it until 
+// you have tried to answer.
+
+let myWord = 'Hello';
+myWord.repeat(3);
+console.log(myWord);
+myWord.replace('H', 'J');
+console.log(myWord);
+myWord.toUpperCase();
+console.log(myWord);
+
+// Solution: Each of the console.log() invocations logs the original value
+// 'Hello'. This is the same string in each case, and it isn't affected by
+// any of the intervening method invocations (repeat, replace, and 
+// toUpperCase), each of which return a new string but don't have any effect
+// on the original string, which is immutable. It doesn't matter which String
+// methods we call on the string, or in which order. Strings, being primitive
+// values, are immutable.
