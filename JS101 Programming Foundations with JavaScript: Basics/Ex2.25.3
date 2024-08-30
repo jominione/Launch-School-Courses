@@ -1,0 +1,30 @@
+// What will the following code log to the console and why? Don't run it until 
+// you have tried to answer.
+
+function changeMyWord(word) {
+  console.log(word);
+  word = word.toUpperCase();
+  return word;
+}
+
+let myWord = 'Hello';
+let myOtherWord = changeMyWord(myWord);
+console.log(myWord);
+console.log(myOtherWord);
+
+// Solution: Will output 'Hello', 'Hello' and 'HELLO'. Same as before except
+// myWord is logged first.
+
+// The key difference is that rather than reassigning myWord to the return
+// value of the changeMyWord function invocation, we're declaring and 
+// initialising another variable myOtherWord to that return value. Therefore
+// when we log myWord it still has its initial value of 'Hello', and only
+// when we log myOtherWord do we see the value of 'HELLO' returned by the
+// function.
+
+// This again demonstrates that nothing we do within the changeMyWord function
+// will affect the value of the String primitive to the myWord variable. We 
+// can use the value returned by the function, but only by assigning a variable
+// to it, or reassigning an existing variable. It's important to draw a 
+// distinction between the process of assignment and reassignment of variables
+// and the concept of mutability.

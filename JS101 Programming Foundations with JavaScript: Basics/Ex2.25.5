@@ -1,0 +1,26 @@
+// What will the following code log to the console and why? Don't run it until 
+// you have tried to answer.
+
+function changeMyWords(words) {
+  console.log(words);
+  words = ['Hi', 'Goodbye'];
+}
+
+let myWords = ['Hello', 'Goodbye'];
+changeMyWords(myWords);
+console.log(myWords);
+
+// Solution: Will output ['Hello', 'Goodbye'] twice. Once when changeMyWords
+// is invoked and a second time when passed to console log. The function
+// changeMyWords reassigns its param with ['Hi', 'Goodbye'] but this its
+// parameter only exist within the function scope so myWords is unaffected.
+
+// As with the previous exercise, when myWords is passed as an argument to 
+// the changeMyWords function invokation, it acts like pass-by-reference since
+// myWords is assigned to an array. At this point the myWords variable and
+// the words function parameter both point to the same array, and it is this
+// array that is output when we log words. However, we reassign the words
+// parameter to a new array. Again, it is important to be clear that this
+// reassignment is not the same thing as mutating the array. We don't mutate
+// the array at any point, and so when we log myWords with console.log we see
+// the array with its original elements.

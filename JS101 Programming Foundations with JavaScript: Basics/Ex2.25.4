@@ -1,0 +1,27 @@
+// What will the following code log to the console and why? Don't run it until 
+// you have tried to answer.
+
+function changeMyWords(words) {
+  console.log(words);
+  words[0] = 'Hi';
+}
+
+let myWords = ['Hello', 'Goodbye'];
+changeMyWords(myWords);
+console.log(myWords);
+
+// Solution: Will output ['Hello', 'Goodbye'] and ['Hi', 'Goodbye']. When
+// function changeMyWords is invoked with the argument myWords, it logs the
+// value of myWords, ['Hello', 'Goodbye']. Since myWords is currently a
+// reference type, when changeMyWords mutates the value at index 0 of its
+// argument, this mutation also changes mutates the value of myWords.
+
+// The myWords variable is initialised to an array containing two elements,
+// the strings 'Hello' and 'Goodbye'. Because an array is a reference type
+// rather than primitive, when we pass myWords into the changeMyWords function
+// invokation, this acts like pass-by-reference. The myWords variable and
+// the words function parameter both point to the same array. When we
+// initially log words we see the same array elements from the array literal
+// to which we initialised myWords. We then mutate the array by assigning
+// index 0 to the string 'Hi'. When we subsequently log myWords we see the
+// mutated array.

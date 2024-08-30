@@ -11,4 +11,18 @@ let myWord = 'Hello';
 myWord = changeMyWord(myWord);
 console.log(myWord);
 
-// Solution: Will output 'Hello' and 'HELLO'. 
+// Solution: Will output 'Hello' and 'HELLO'. The variable myWord is 
+// initialised with primitive value 'Hello'. This variable is passed to 
+// changeMyWord function before function is assigned to myWord. When 
+// console.log is invoked with myWord, the function changeMyWord is called
+// with the current value of myWordord which is 'Hello' before being assigned 
+// to myWord. Since the function executes a console.log with the value of its
+// parameter before assigned it will first output 'Hello'. Since the parameter
+// is a primitive value can't be mutated but is reassigned a new value 'HELLO'
+// that is then returned. This return value 'HELLO' is in turn logged.
+
+// Because we're effectively using pass-by-value here, the only way to impact
+// the value of the myWord variable outside the scope of the function is by
+// returning something from the function. Just returning a value is not 
+// sufficient on its own, however, we also have to do something with that
+// value such as assigning it to a variable.
