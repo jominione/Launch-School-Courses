@@ -1,0 +1,25 @@
+// What will the following code log to the console and why? Don't run it until 
+// you have tried to answer.
+
+let color = "yellow";
+let colors = ["red", "green", "blue"];
+
+function updateColors(colors, color) {
+  colors.push(color);
+}
+
+updateColors(colors);
+console.log(colors);
+
+// Solution: Will output ["red", "green", "blue", undefined]. The program
+// defines two global variables color and colors. It also defines function
+// updateColors with two parameters, colors and color, which have scope within
+// the function and shadows (or blocks access to) the global variables. Within 
+// the body of the function calls the push method on colors, passing the 
+// parameter color.
+// When you invoke updateColors with argument colors, the function assigns
+// the color parameter value undefined since the program cannot access the 
+// global variable color. The function than appends value of color undefined
+// to parameter colors. Since both function and global variable colors point
+// to same array, the global variable colors now has modified value 
+// ["red", "green", "blue", undefined] which is logged to console.

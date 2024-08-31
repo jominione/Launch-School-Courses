@@ -1,0 +1,30 @@
+// What will the following code log to the console and why? Don't run it until 
+// you have tried to answer.
+
+let color = "yellow";
+let colors = ["red", "green", "blue"];
+
+function updateColors(colors) {
+  colors.push(color);
+}
+
+updateColors(colors);
+console.log(colors);
+
+// Solution: Will output ["red", "green", "blue", "yellow"]. When the function
+// updateColors is invoked, it passes the reference type variable colors to
+// the parameter in updateColors. This is a different variable to the global
+// variable. Since colors is a reference type, mutations of the variable in
+// the function scope will affect the global variable. The updateColors
+// function calls the push method which adds an element (variable color which
+// is accessible within the function) to the caller, colors. When program
+// calls colors with console log will output mutated value of colors,
+// ["red", "green", "blue", "yellow"].
+
+// Because the function defined the parameter colors, and because the variable
+// we passed in as an argument points to a reference type value, the global
+// colors variable, and the function-scoped colors parameter both point to
+// the same array.
+
+// Since the global variable points to the same array as the one referenced
+// by the colors parameter in the function, we see the modified value output.

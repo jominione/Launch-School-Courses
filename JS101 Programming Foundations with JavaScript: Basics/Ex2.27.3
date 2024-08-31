@@ -1,0 +1,21 @@
+// What will the following code log to the console and why? Don't run it until 
+// you have tried to answer.
+
+let color1 = "purple";
+let color2 = "pink";
+let colors = ["red", "green", "blue"];
+
+function updateColors(colors, color) {
+  colors.push(color);
+}
+
+updateColors(colors, color1);
+updateColors(colors, color2);
+console.log(colors);
+
+// Solution: Will output ["red", "green", "blue", "purple", "pink"]. Since
+// updateColors is invoked twice, the values of global variable color1 and 
+// color2 are appended to parameter colors which will modify the value of 
+// global variable colors because both the global variable and function 
+// parameter colors reference the same array. When called by console.log
+// will output modified value ["red", "green", "blue", "purple", "pink"].

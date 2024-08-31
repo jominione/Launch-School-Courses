@@ -1,0 +1,30 @@
+// What will the following code log to the console and why? Don't run it until 
+// you have tried to answer.
+
+function capitalize() {
+  return word[0].toUpperCase() + word.slice(1);
+}
+
+function exclaim() {
+  return (word += "!!!");
+}
+
+let word = "hello";
+let capitalizedWord = capitalize(word);
+let exclaimedWord = exclaim(capitalizedWord);
+
+console.log(word);
+console.log(capitalizedWord);
+console.log(exclaimedWord);
+
+// Solution: Will output 'hello', 'Hello', 'hello!!!'. The program initialises
+// three global variables, word with primitive value 'hello', capitalizedWord
+// and exclaimedWord assigned with function expression capitalize with argument
+// word and exclaim with argument capitalizedWord. 
+// Note that both capitalize and exclaim are defined without parameters. So
+// when an argument is passed into both these functions, the parameter word
+// will ignore the passed argument and look to the global variable.
+// Since word is a primitive value it is not mutable by methods calling it.
+// Hence global word is unmodified when functions are invoked.
+// So when exclaimedWord is invoked by console.log it the argument 
+// capitalizedWord does not affect the global word.

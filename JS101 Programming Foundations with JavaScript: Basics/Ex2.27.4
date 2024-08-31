@@ -1,0 +1,24 @@
+// What will the following code log to the console and why? Don't run it until 
+// you have tried to answer.
+
+let color1 = "purple";
+let color2 = "pink";
+let colors = ["red", "green", "blue"];
+
+function updateColors(colors, color) {
+  colors.push(color);
+  return colors;
+}
+
+let newColors = updateColors(colors, color1);
+updateColors(newColors, color2);
+console.log(colors);
+
+// Solution: Will output ["red", "green", "blue", "purple", "pink"]. A new
+// global variable is assigned function expression updateColors with arguments
+// colors and color1. The updateColors function also returns the parameter
+// colors. Both the global variable and function-scoped parameter colors point
+// to same array hence any mutation of parameter array will also modify the
+// value of global variable. When updateColors is invoked with arguments
+// newColors and color2 this modifies global colors which will output modified
+// value ["red", "green", "blue", "purple", "pink"].
