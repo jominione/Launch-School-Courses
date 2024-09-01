@@ -1,0 +1,15 @@
+// What do you think the following code will output?
+
+let nanArray = [NaN];
+
+console.log(nanArray[0] === NaN);
+
+// Bonus: How can you reliably test if a value is NaN?
+
+// Solution: Will output false. NaN is the only value in JavaScript that is 
+// not equal to itself.
+
+// To test if a value is NaN
+
+console.log(Number.isNaN(nanArray[0]) === NaN);
+console.log(Object.is(nanArray[0], NaN));

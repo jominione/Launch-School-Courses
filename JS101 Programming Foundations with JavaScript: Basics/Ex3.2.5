@@ -1,0 +1,15 @@
+// What will the following code output?
+
+console.log(false == '0');
+console.log(false === '0');
+
+// Solution: Will output true and false.
+
+// In JavaScript, there are two equality operators: strict equality (===)
+// and non-strict (or weak) equality (==). The === operator behaves as a
+// traditional equality oeprator does in most languages: it evalutes as true
+// when two expressions on either side have the same type and value. On the
+// other hand, the == operator coerces the values to the same type before
+// comparing them. Coercisions can produce unexpected and confusing behaviour.
+// Thus, it's good practice to use === rather than ==. The same holds for the 
+// !== vs. != operators: prefer !==.

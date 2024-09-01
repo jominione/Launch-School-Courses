@@ -1,0 +1,13 @@
+// What does the last line in the following code output?
+
+let object = { first: [1] };
+let numArray = object["first"];
+numArray.push(2);
+
+console.log(numArray); //  => "[1, 2]"
+console.log(object);
+
+// Solution: Will output { first: [1, 2] } because numArray is points to a 
+// reference type whose value is shared with object['first']. When reference 
+// types are mutated, the values in all the variables that point to that
+// will change.

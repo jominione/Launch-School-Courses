@@ -1,0 +1,17 @@
+// What is the output of the following code?
+
+let answer = 42;
+
+function messWithIt(someNumber) {
+  return (someNumber += 8);
+}
+
+let newAnswer = messWithIt(answer);
+
+console.log(answer - 8);
+
+// Solution: Will output 34. The variable answer is assigned a number which
+// is a primitive value and therefore immutable. When functiion messWithIt
+// is passed answer variable as argument it acts like pass-by-value. That
+// it copy number value assigns it to the parameter initialised by messWithIt.
+// Hence there is no effect on answer.

@@ -1,0 +1,32 @@
+// Can you identify all of the variables, primitive values, and objects in 
+// the following code?
+
+function boo(scare) {
+  let myBoo = scare.toUpperCase() + "!!!";
+  console.log(myBoo);
+}
+
+const halloweenCollection = {
+  greet: "Happy Halloween",
+  scare: "Boo",
+  wish: "May all your pumpkins be glowing",
+};
+
+let myBoo = boo(halloweenCollection["greet"]);
+
+// Solution [Wrong]:
+
+// Variables:
+// Line 1: boo, scare
+// Line 2: myBoo
+// Line 6: halloweenCollection
+// Line 12: myBoo (different variable to one on line 2)
+// There are total of 5 variables.
+
+// Primitive Values:
+// Line 2: "!!!"
+// Line 7: 'greet', "Happy Halloween"
+// Line 8: "scare", "Boo"
+// Line 9: "wish", "May all your pumpkins be glowing"
+
+// Objects: There is two objects - function boo and halloweenCollection.
