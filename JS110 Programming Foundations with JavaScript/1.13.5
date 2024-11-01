@@ -1,0 +1,12 @@
+// What is the callback's return value in the following code? Also, what is
+// the return value of every in this code?
+
+let result = [1, 2, 3].every(num => {
+  return num = num * 2;
+});
+
+console.log(result);
+
+// Solution: The callback's return value is 2, 4, 6. Since the callback
+// function always returns a truthy for every element of the caller, the 
+// return value of calling every method is true.

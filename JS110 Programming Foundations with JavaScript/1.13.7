@@ -1,0 +1,17 @@
+// What is the return value of map in the following code? Why?
+
+let result = ['ant', 'bear'].map(elem => {
+  if (elem.length > 3) {
+    return elem;
+  }
+});
+console.log(result);
+
+// Solution: The return output is [undefined, 'bear']. The return value of
+// map is an array, which is the collection type that map always returns.
+
+// When a function doesn't explicitly return something, it implicitly returns
+// undefined.
+
+// Thus, the first element of caller, 'ant', evaluates as false by the callback
+// function.

@@ -4,4 +4,10 @@
 let result = [1, 2, 3].map(num => num * num);
 console.log(result);
 
-// Solution: Will return [1, 4, 9]. 
+// Solution: Will return [1, 4, 9]. The callback function is written as a
+// single expression so the curly braces and return statement are omitted
+// and implicit return will be num * num.
+
+// Without braces surrounding the body of the arrow function, JavaScript uses
+// the computed value as the return value. In this case, the callback returns
+// 1, 4, and 9 on the 3 iterations.
