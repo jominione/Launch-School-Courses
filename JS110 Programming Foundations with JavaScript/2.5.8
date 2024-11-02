@@ -1,0 +1,28 @@
+// Using the forEach method, write some code to otuput all vowels from the
+// strings in the arrays. Don't use a for or while loop.
+
+let obj = {
+  first: ['the', 'quick'],
+  second: ['brown', 'fox'],
+  third: ['jumped'],
+  fourth: ['over', 'the', 'lazy', 'dog'],
+};
+
+// Hint: You can use the String.prototype.split method to convert the words
+// to arrays of individual characters.
+
+// Solution:
+
+let vowels = 'aeiou';
+let arrays = Object.values(obj);
+
+arrays.forEach( arr => {
+  arr.forEach( word => {
+    let letters = word.split('');
+    letters.forEach( letter => {
+      if (vowels.includes(letter)) {
+        console.log(letter);
+      }
+    })
+  })
+})

@@ -1,0 +1,22 @@
+// Perform the same transformation of sorting the subarrays we did in the
+// previous exercise with one difference; sort the elements in descending 
+// order.
+
+let arr = [['b', 'c', 'a'], [2, 11, -3], ['blue', 'black', 'green']];
+
+// Solution:
+
+let result = arr.map(array => {
+  return array.slice().sort((a, b) => {
+    if (a > b) return -1;
+    if (b > a) return 1;
+    return 0;
+  })
+})
+
+console.log(result);
+
+// Discussion: Here, we do not need to treat string and number elements
+// differently. We took care of everything using the extensive form of sort's
+// callback that compares the elements despite their type, and returns a
+// negative, positive or 0 number as appropriate.

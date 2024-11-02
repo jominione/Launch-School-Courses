@@ -1,0 +1,16 @@
+// Similar to the preivous question, you need to create a deep copy of the
+// following nested object.
+
+const truthiness = {
+  falsy: [ null, undefined, '', false, NaN, 0],
+  truthy: ['everthing else...']
+};
+
+// Hint: You can't leverage the JSON methods because JSON doesn't recognise
+// undefined as a valid JSON value, so it converts it to null. It also treats
+// NaN as null.
+
+// You'll need to create a new object yourself, as well as copies of the nested
+// arrays to assign to its properties.
+
+const deepCopy = {};
