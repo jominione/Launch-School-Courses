@@ -1,0 +1,31 @@
+// Given the following data structure write some code to return an array
+// containing the colors of the fruits and the sizes of the vegetables. The
+// sizes should be uppercase, and the colors should be capitalised.
+
+let obj = {
+  grape: { type: 'fruit', colours: ['red', 'green'], size: 'small' },
+  carrot: { type: 'vegetable', colours: ['orange'], size: 'medium' },
+  apple: { type: 'fruit', colours: ['red', 'green'], size: 'medium' },
+  apricot: { type: 'fruit', colours: ['orange'], size: 'medium' },
+  marrow: { type: 'vegetable', colours: ['green'], size: 'large' },
+};
+
+// The return value should look like this:
+
+// [["Red", "Green"], "MEDIUM", ["Red", "Green"], ["Orange"], "LARGE"];
+
+// Solution: 
+
+let array = [];
+let objValues = Object.values(obj);
+
+objValues.forEach( food => {
+  if (food.type === 'fruit') {
+    let capitalised = food.colours.map( colour => colour[0].toUpperCase() + colour.slice(1) );
+    array.push(capitalised);
+  } else {
+    array.push(food.size.toUpperCase());
+  }
+});
+
+console.log(array);

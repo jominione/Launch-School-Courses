@@ -1,0 +1,36 @@
+// A UUID is a type of identifier often used to uniquely identify items, even
+// when some of those items were created on a different server or by a 
+// different application. That is, without any synchronisation, two or more
+// computer systems can create new items and label them with a UUID with no
+// significant risk of stepping on each other's toes. It accomplishes this
+// feat through massive randomisation. The number of possible UUID values
+// is approximately 3.4 X 10E38, which is a huge number. The chance of a
+// conflict is vanishingly small with such a large number of possible values.
+
+// Each UUID consists of 32 hexadecimal characters (the digits 0 - 9 and the 
+// letters a - f) represented as a string. The value is typically broken into
+// 5 sections in an 8-4-4-4-12 pattern, e.g., 
+// 'f65c576-a6aa-17a8-faa1-a67f2dc9fa91'.
+
+// Write a function that takes no arguments and returns a string that contains
+// a UUID.
+
+// Solution:
+
+function generateUUID() {
+  let characters = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'a', 'b', 'c', 'd', 'e', 'f'];
+  let sections = [8, 4, 4, 4, 12];
+  let strings = [];
+
+  for (let i = 0; i < sections.length; i++) {
+    let string = '';
+    for (let j = 0; j < sections[i]; j++) {
+      let randIndex = Math.floor(Math.random() * characters.length)
+      string += characters[randIndex].toString();
+    }
+    strings.push(string);
+  }
+  return strings.join('-');
+}
+
+console.log(generateUUID());

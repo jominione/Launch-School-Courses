@@ -13,4 +13,16 @@ const truthiness = {
 // You'll need to create a new object yourself, as well as copies of the nested
 // arrays to assign to its properties.
 
+let truthinessKeyValues = Object.entries(truthiness);
 const deepCopy = {};
+
+truthinessKeyValues.forEach( keyValue => {
+  let [ key, value ] = keyValue;
+  deepCopy[key] = [...value];
+})
+
+console.log(deepCopy);
+deepCopy['new'] = 'foo';
+deepCopy['falsy'][0] = 0;
+console.log(deepCopy)
+console.log(truthiness);

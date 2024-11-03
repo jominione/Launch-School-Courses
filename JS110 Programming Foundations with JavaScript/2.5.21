@@ -1,0 +1,32 @@
+// Identify the higher-order functions and callbacks in this code.
+
+function scream(message, helper) {
+  const shout = () => message.toUpperCase();
+
+  return helper(shout());
+}
+
+const exclamate = str => str + "!!!";
+
+const foo = ["help", "Boo", "arGH", "Oh no"];
+const FOO = foo.map(word => scream(word, exclamate));
+
+// Solution:
+
+// Higher-order functions are functions that take another function as an
+// argument, return a function, or do both.
+
+// In this code, scream and map are higher-order functions since they both
+// receive a callback function as an argument.
+
+// Higher-order functions: scream, map.
+
+// Callback functions are passed as arguments to other functions.
+
+// In this code, the callback functions are exclamate, and the arrow function 
+// passed into map, word => scream(word, exclamate).
+
+// Callbacks: exclamate and arrow function: word => scream(word, exclamate).
+
+// Note that shout is not used as a callback in this code. What is passed
+// into helper, is the return value of shout, not the function itself.
