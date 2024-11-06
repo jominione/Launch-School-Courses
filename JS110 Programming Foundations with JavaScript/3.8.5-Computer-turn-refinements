@@ -1,0 +1,269 @@
+// 1. Ideally, if the computer has a chance to win, it should make the winning
+//    move. If the computer has a chance to win, it should make the winning
+//    make the winning move rather than the defensive move.
+// 2. We can make one more improvement: pick square #5 if it's available.
+//    The AI for the computer should first pick the winning move, then the
+//    the defensive move, then square #5, and finally, a random square.
+// 3. Can you change the game so that the computer moves first? See if you
+//    can make this a setting at the top of the program (i.e., a constant)
+//    so that you can play the game with either player or computer going first.
+//    Try adding a 3rd option that causes your game to prompt the user for
+//    who goes first before play begins. Valid options for the constant used
+//    in this feature can be "player", "computer", or "choose".
+
+const readline = require('readline-sync');
+
+const INITIAL_MARKER = ' ';
+const HUMAN_MARKER = 'X';
+const COMPUTER_MARKER = 'O';
+const WINS_MATCH = 2;
+const WINNING_LINES = [
+  [1, 2, 3], [4, 5, 6], [7, 8, 9],
+  [1, 4, 7], [2, 5, 8], [3, 6, 9],
+  [1, 5, 9], [3, 5, 7]
+];
+const FIRST_MOVE = "choose";   // Options are "player", "computer", or "choose"
+
+
+function prompt(message) {
+  console.log(`${message}`);
+}
+
+function displayBoard(board) {
+  console.clear();
+
+  console.log(`You are ${HUMAN_MARKER}. Computer is ${COMPUTER_MARKER}`);
+
+  console.log('');
+  console.log('     |     |');
+  console.log(`  ${board['1']}  |  ${board['2']}  |  ${board['3']}`);
+  console.log('     |     |');
+  console.log('-----+-----+-----');
+  console.log('     |     |');
+  console.log(`  ${board['4']}  |  ${board['5']}  |  ${board['6']}`);
+  console.log('     |     |');
+  console.log('-----+-----+-----');
+  console.log('     |     |');
+  console.log(`  ${board['7']}  |  ${board['8']}  |  ${board['9']}`);
+  console.log('     |     |');
+  console.log('');
+}
+
+function joinOr(arr, delimiter=', ', word='or') {
+  if (arr.length === 2) {
+    return arr.join(` ${word} `);
+  } else if (arr.length > 2) {
+    let front = arr.slice(0, arr.length-1).join(delimiter);
+    return front + delimiter + word + ' ' + arr[arr.length-1];
+  }
+  return arr.join();
+}
+
+function initializeBoard() {
+  let board = {};
+
+  for (let square = 1; square <= 9; square++) {
+    board[String(square)] = INITIAL_MARKER;
+  }
+
+  return board;
+}
+
+function emptySquares(board) {
+  return Object.keys(board).filter(key => board[key] === INITIAL_MARKER);
+}
+
+function playerChoosesSquare(board) {
+  let square;
+
+  while (true) {
+    prompt(`Choose a square ${joinOr(emptySquares(board))}:`);
+    square = readline.question().trim();
+  
+    if (emptySquares(board).includes(square)) break;
+  
+    prompt("Sorry, that's not a valid choice.");
+  }
+
+  board[square] = HUMAN_MARKER;
+}
+
+function computerChoosesSquare(board) {
+  let randomIndex = Math.floor(Math.random() * emptySquares(board).length);
+
+  let square = emptySquares(board)[randomIndex];
+
+  if (typeof detectOpportunity(board) === 'number') {
+    board[detectOpportunity(board)] = COMPUTER_MARKER;
+  } else if (typeof detectThreat(board) === 'number') {
+    board[detectThreat(board)] = COMPUTER_MARKER;
+  } else if (board[5] === INITIAL_MARKER) { 
+    board[5] = COMPUTER_MARKER;
+  } else {
+    board[square] = COMPUTER_MARKER;
+  }
+}
+
+function boardFull(board) {
+  return emptySquares(board).length === 0;
+}
+
+function someoneWon(board) {
+  return !!detectWinner(board);
+}
+
+function detectWinner(board) {
+
+  for (let line = 0; line < WINNING_LINES.length; line++) {
+    let [ sq1, sq2, sq3 ] = WINNING_LINES[line];
+
+    if (
+      board[sq1] === HUMAN_MARKER &&
+      board[sq2] === HUMAN_MARKER &&
+      board[sq3] === HUMAN_MARKER
+    ) {
+      return 'Player';
+    } else if (
+      board[sq1] === COMPUTER_MARKER &&
+      board[sq2] === COMPUTER_MARKER &&
+      board[sq3] === COMPUTER_MARKER
+    ) {
+      return 'Computer';
+    }
+  }
+
+  return null;
+}
+
+function detectThreat(board) {
+  for (let line = 0; line < WINNING_LINES.length; line++) {
+    let [ sq1, sq2, sq3 ] = WINNING_LINES[line];
+
+    if (
+      board[sq1] === INITIAL_MARKER &&
+      board[sq2] === HUMAN_MARKER &&
+      board[sq3] === HUMAN_MARKER
+    ) {
+      return sq1;
+    } else if (
+      board[sq1] === HUMAN_MARKER &&
+      board[sq2] === INITIAL_MARKER &&
+      board[sq3] === HUMAN_MARKER
+    ) {
+      return sq2;
+    } else if (
+      board[sq1] === HUMAN_MARKER &&
+      board[sq2] === HUMAN_MARKER &&
+      board[sq3] === INITIAL_MARKER
+    ) {
+      return sq3;
+    }
+  }
+
+  return null;
+}
+
+function detectOpportunity(board) {
+  for (let line = 0; line < WINNING_LINES.length; line++) {
+    let [ sq1, sq2, sq3 ] = WINNING_LINES[line];
+
+    if (
+      board[sq1] === INITIAL_MARKER &&
+      board[sq2] === COMPUTER_MARKER &&
+      board[sq3] === COMPUTER_MARKER
+    ) {
+      return sq1;
+    } else if (
+      board[sq1] === COMPUTER_MARKER &&
+      board[sq2] === INITIAL_MARKER &&
+      board[sq3] === COMPUTER_MARKER
+    ) {
+      return sq2;
+    } else if (
+      board[sq1] === COMPUTER_MARKER &&
+      board[sq2] === COMPUTER_MARKER &&
+      board[sq3] === INITIAL_MARKER
+    ) {
+      return sq3;
+    }
+  }
+
+  return null;
+}
+
+function playAgain() {
+  prompt('Play again? (y or n)');
+  let answer = readline.question().toLowerCase()[0];
+  return answer === 'y';
+}
+
+function chooseStartingPlayer() {
+  if (FIRST_MOVE === "player") return "Player";
+  if (FIRST_MOVE === "computer") return "Computer";
+  if (FIRST_MOVE === "choose") {
+    prompt("Who goes first? (p for player, c for computer): ");
+    let choice = readline.question().toLowerCase()[0];
+    return (choice === 'p') ? "Player" : "Computer";
+  }
+}
+
+function alternatePlayer(currentPlayer) {
+  return (currentPlayer === "Player") ? "Computer" : "Player";
+}
+
+function playGame() {
+  let playerWins = 0;
+  let computerWins = 0;
+
+  while (true) {
+    let board = initializeBoard();
+    let currentPlayer = chooseStartingPlayer();
+
+    while (true) {
+      displayBoard(board);
+
+      if (currentPlayer === "Player") {
+        playerChoosesSquare(board);
+      } else {
+        computerChoosesSquare(board);
+      }
+
+      if (someoneWon(board) || boardFull(board)) break;
+      currentPlayer = alternatePlayer(currentPlayer);
+    }
+
+    displayBoard(board);
+    
+    if (someoneWon(board)) {
+      let winner = detectWinner(board);
+      prompt(`${winner} won!`);
+      if (winner === 'Player') {
+        playerWins += 1;
+      } else {
+        computerWins += 1;
+      }
+    } else {
+      prompt("It's a tie!");
+    }
+
+    prompt(`Score - Player: ${playerWins}, Computer: ${computerWins}`);
+
+    if (playerWins === WINS_MATCH) {
+      prompt("Player wins the match!");
+      playerWins = 0;
+      if (!playAgain()) break;
+    } else if (computerWins === WINS_MATCH) {
+      prompt("Computer wins the match!");
+      computerWins = 0;
+      if (!playAgain()) break;
+    } else {
+      if (!playAgain()) break;
+    }
+  }
+}
+
+while (true) {
+  playGame();
+  prompt('Thanks for playing Tic Tac Toe!');
+  break
+}
