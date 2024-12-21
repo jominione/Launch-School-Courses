@@ -11,7 +11,7 @@ let statement = "The Flintstones Rock";
 
 let letterCount = {};
 let letters = statement.split(' ').join('').split(''); 
-// Alternative letters = statement.split(' ').filter(char => char !== ' ');
+// Alternative letters = statement.split('').filter(char => char !== ' ');
 // Remove space and split into array of letters.
 
 letters.forEach(letter => {
