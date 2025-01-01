@@ -13,6 +13,8 @@ const truthiness = {
 // You'll need to create a new object yourself, as well as copies of the nested
 // arrays to assign to its properties.
 
+// Solution:
+
 let truthinessKeyValues = Object.entries(truthiness);
 const deepCopy = {};
 

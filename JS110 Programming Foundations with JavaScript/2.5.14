@@ -9,7 +9,7 @@ let arr = [[2], [3, 5, 7], [9], [11, 15, 18]];
 let newArr = [];
 
 arr.forEach(subArray => {
-  let filteredArr = subArray.filter( num => num %3 === 0 );
+  let filteredArr = subArray.filter( num => num % 3 === 0 );
   newArr.push(filteredArr);
 });
 
