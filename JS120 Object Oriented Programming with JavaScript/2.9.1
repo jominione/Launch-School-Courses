@@ -1,0 +1,15 @@
+// What will the following code output? Try to determine the results without
+// running the code.
+
+function func() {
+  return this;
+}
+
+let context = func();
+
+console.log(context);
+
+// Solution: Will output `Object [global] {...}`
+
+// When you invoke a function with parentheses, the JavaScript uses the global
+// object as the implicit context.

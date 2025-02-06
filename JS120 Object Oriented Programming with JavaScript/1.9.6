@@ -1,0 +1,24 @@
+// Let's add a method, `readBook`, that marks a book objects as read by setting
+// the `read` property to `true`.
+
+// Solution:
+
+function createBook(title, author, read=false) {
+  return {
+    title,
+    author,
+    getDescription () {
+      return `${this.title} was written by ${this.author}.`;
+    },
+    read,
+    readBook () {
+      this.read = true;
+    }
+  };
+}
+
+let book1 = createBook('Mythos', 'Stephen Fry');
+
+console.log(book1.read);
+book1.readBook();
+console.log(book1.read);

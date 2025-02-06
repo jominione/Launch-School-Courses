@@ -1,0 +1,18 @@
+// What will the following code output and why? Try to answer without running
+// the code.
+
+function Ninja() {
+  this.swung = true;
+}
+
+let ninja = new Ninja();
+
+Ninja.prototype = {
+  swingSword: function() {
+    return this.swung;
+  },
+};
+
+console.log(ninja.swingSword());
+
+// Solution:

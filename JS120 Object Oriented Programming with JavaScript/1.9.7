@@ -1,0 +1,24 @@
+// Finally, let's update `getDescription` function to reflect the `read` state
+// directly, for instance:
+
+let book1 = createBook('Mythos', 'Stephen Fry');
+console.log(book1.getDescription());  // Mythos was written by David Fry. I haven't read it.
+book1.readBook();
+console.log(book1.getDescription());  // Mythos was written by David Fry. I have read it.
+
+// Solution:
+
+function createBook(title, author, read=false) {
+  return {
+    title,
+    author,
+    getDescription () {
+      return `${this.title} was written by ${this.author}. ` + 
+             `I ${this.read ? "have" : "haven't"} read it.`;
+    },
+    read,
+    readBook () {
+     this.read = true;
+    }
+  };
+}

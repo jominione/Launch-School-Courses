@@ -1,0 +1,31 @@
+/*
+Since a constructor is just a function, you can call it without the `new`
+operator. However, that can lead to unexpected results and errors, especially
+for inexperienced programmers. Write a constructor function that you can use
+with or withou the `new` operator. The function should return the same result
+with either form. Use the code below to check your solution:
+*/
+
+function User(first, last) {
+  // ...
+}
+
+let name = 'Jane Doe';
+let user1 = new User('John', 'Doe');
+let user2 = User('John', 'Doe');
+
+console.log(name);        // => Jane Doe
+console.log(user1.name);  // => John Doe
+console.log(user2.name);  // => John Doe
+
+// Hint:
+/*
+In the constructor function, check the value of `this` to see whether it is
+an instance created by the constructor function. If it is, then the function
+was called with the `new` operator; otherwise, the function was called without
+`new`. You can use this in your code; if you determine that `new` wasn't used,
+then you can have the constructor call itself with the `new` keyword and use
+its return value.
+*/
+
+// Solution:

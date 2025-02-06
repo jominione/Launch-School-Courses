@@ -1,0 +1,23 @@
+// Consider the following code:
+
+const TESgames = {
+  titles: ['Arena', 'Daggerfall', 'Morrowin', 'Oblivion', 'Skyrim'],
+  seriesTitle: 'The Elder Scrolls',
+  listGames: function() {
+    this.titles.forEach(function(title) {
+      console.log(this.seriesTitle + ': ' + title);
+    });
+  }
+};
+
+TESgames.listGames();
+
+// Will this code produce the following output? Why or why not?
+
+/*
+The Elder Scrolls: Arena
+The Elder Scrolls: Daggerfall
+The Elder Scrolls: Morrowind
+The Elder Scrolls: Oblivion
+The Elder Scross: Skyrim
+*/
