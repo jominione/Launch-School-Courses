@@ -10,4 +10,6 @@ function foo() {
 
 foo.bind(obj);
 
-// Solution:
+// Solution: Will log nothing because unlike `call` or `apply` does not invoke
+// the calling function. Instead it returns a new function that is permanently
+// bound to the context argument.

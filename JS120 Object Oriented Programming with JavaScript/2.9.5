@@ -13,3 +13,7 @@ let bar = {
     return this.a + this.b;
   },
 };
+
+// Solution: Will output `3`.
+
+console.log(bar.add.call(foo));

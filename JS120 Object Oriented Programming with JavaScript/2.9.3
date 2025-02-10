@@ -15,3 +15,43 @@ let foo = {
 foo.deliverMessage = deliverMessage;
 
 foo.deliverMessage();
+
+// Solution: Will output `'Hello from the global scope!'` and 
+// `'Hello from the function scope!'`.
+
+// On line 3 a undeclared global variable `message` is defined with string 
+// value without the let, const, or var keywords. This undeclared variable 
+// is added to the global object as a property.
+
+// Line 5 to 7 a function declaration `deliverMessage` is defined with function
+// statement on line 6 invoking `console.log` with `this.message` passed as
+// argument.
+
+// On line 9, `deliverMessage` is invoked as a function.
+
+// When you invoke a function with parentheses, JavaScript uses the global
+// object as the implicit context.
+
+// So when `deliverMessage` is invoked as a function, `this` on line 6 is
+// the global object. So `this.message` is accessing the `message` property
+// on the global object.
+
+// Hence, `console.log` inside the function block on line 6 outputs 
+// `'Hello from the global scope!'`.
+
+// On line 11 to 13 a global variable `foo` is declared and defined with object
+// literal.
+
+// On line 15 `foo` is assigned object property `deliverMessage` with the
+// function name `deliverMessage`.
+
+// On line 17 a method call is invoked by calling the function 
+// `deliverMessage` as a method of object on `foo`: `foo.deliverMessage()`.
+
+// When you invoke a method, it uses the object that you used to call the
+// method as the implicit context. 
+
+// So when the function `deliverMessage` is called as a method of the object 
+// `foo`, `this` on line 6 refers to the object on which the method was called. 
+// In this case `this` inside `deliverMessage` will refer to the object `foo` 
+// and `console` will output the value of `foo.message`.

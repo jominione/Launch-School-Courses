@@ -1,4 +1,18 @@
-// What method can we use to bind a function permanently to a particuar
+// What method can we use to bind a function permanently to a particular
 // execution context?
 
-// Solution:
+// Solution: The `bind` method on function objects permanently binds object
+// passed as `bind`'s first argument to the new function returned by `bind`.
+
+// This new function can be passed as argument and called without losing its
+// context since it's permanent bound to the provided object.
+
+// The original function isn't changed but its context is altered when it gets
+// called.
+
+// The `bind`'s context is the original function and it returns a new function
+// that calls the original function with the context supplied to `bind` as
+// its first argument.
+
+// No matter what you do to the returned function, you can't change the value
+// of `context`.

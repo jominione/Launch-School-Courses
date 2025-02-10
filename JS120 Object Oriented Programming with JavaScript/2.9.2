@@ -10,3 +10,24 @@ let obj = {
 let context = obj.func();
 
 console.log(context);
+
+// Solution: Will output `{ func: [Function: func] }`.
+
+// Lines 4 to 8 defines a global variable, `obj`, assigned a basic object in
+// object literal syntax with a method named `func`.
+
+// Line 10 defines a global variable `context` assigned a method call on the
+// `obj` by calling the function `func` as a method of an object `obj.func()`.
+
+// On line 12 `console` is invoked by passing it as argument `context`.
+
+// When you invoke a method, it uses the object that you used to call the
+// method as the implicit context. 
+
+// So when the function `func` is called as a method of the object `obj`, 
+// `this` on line 6 refers to the object on which the method was called. In 
+// this case `this` inside `func` will refer to the object `obj` and `console`
+// will output `obj`.
+
+// The difference between output of problem 1 and the current problem is
+// the output in problem 1 is the global object while here its the object `obj`.
