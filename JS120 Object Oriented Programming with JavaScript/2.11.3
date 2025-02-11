@@ -21,7 +21,7 @@ console.log(bar());
 
 // When you invoke a function with parentheses, JavaScript uses the global
 // object as the implicit context. Hence on line 9, `this` refers to the global
-// object but in the global object neither property `a` or `b` are defined,
+// object but neither property `a` or `b` exist in the global object,
 // so `this.a` and `this.b` has the value `undefined`.
 
 // `undefined + undefined` evalutes to `NaN`, hence calling `foo` returns `NaN`.
@@ -29,4 +29,10 @@ console.log(bar());
 // On line 12 global variable `bar` is declared and defined with the value
 // of calling `foo` on `bind` method with context argument `obj`.
 
-// 
+// `bind` permenently bounds the context argument passed to `bind` as context
+// for the calling function and returns this as a new function.
+
+// On line 15 when `bar` is invoked, it executes the logic of `foo` function 
+// with `obj` as its context.
+
+// Hence will return `2 + 3` evaluted to `5` and so line 15 outputs `5`.

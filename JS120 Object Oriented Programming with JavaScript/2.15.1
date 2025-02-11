@@ -19,4 +19,33 @@ function logReturnVal(func) {
 
 logReturnVal(turk.getDescription);
 
-// Solution:
+// Solution: Will output `"undefined undefined is a undefined"`.
+
+// The context depends on how a function is invoked.
+
+// Here on line 20, the function `logReturnVal` is invoked by passing it the
+// argument `turk.getDescription`.
+
+// `turk.getDescription` is a method call on object `turk` by the method
+// function `getDescription'.
+
+// When passed as argument to `logReturnVal`, `turk.getDescription` is a
+// function value.
+
+// On line 16, the parameter `func` is assigned to the local variable `returnVal`
+// as function call.
+
+// This in turn on line 17 is executed as a function call by being passed
+// as argument to `console.log`.
+
+// Hence, `getDescription` is invoked as a function so the context will be
+// the global object and `firstName`, `lastName` and `occupation` do not
+// exist in the global object so have the value `undefined`.
+
+// Thus on line 20 the invocation of `logReturnVal` with `turk.getDescription`
+// outputs `"undefined undefined is a undefined"`.
+
+// The difference between the expected and actual output arises due to context
+// loss arising out of taking the original object `turk.getDescription` and
+// executing it as a function `turk.getDescription()` in the function block
+// of `logReturnVal`.

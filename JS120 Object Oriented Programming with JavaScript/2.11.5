@@ -16,4 +16,18 @@ let bar = foo.bind(obj);
 
 bar.call(otherObj);
 
-// Solution:
+// Solution: Will output `'Amazebulous!'`.
+
+// On line 15, a global variable `bar` is declared and defined with the value
+// of invoking `bind` method with `foo` function as caller and `obj` object 
+// as context argument.
+
+// It returns a new function that executes the logic of `foo` with `obj`
+// as its permanent context.
+
+// You cannot change the execution context of permantly bound functions even 
+// if you use `call`.
+
+// So on line 17 when `bar` is caller of `call` method with `otherObj` as its
+// context argument, the context for `bar` will still be `obj` and will execute
+// `foo` with `obj` as its context and output `obj.a` which is `'Amazebulous!'`.

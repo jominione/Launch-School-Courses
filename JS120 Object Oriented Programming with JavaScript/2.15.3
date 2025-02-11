@@ -3,3 +3,34 @@
 // modify your code to do that?
 
 // Solution:
+
+let turk = {
+  firstName: 'Christopher',
+  lastName: 'Turk',
+  occupation: 'Surgeon',
+  getDescription() {
+    return this.firstName + ' ' + this.lastName + ' is a '
+                                + this.occupation + '.';
+  }
+};
+
+function logReturnVal(func) {
+  let returnVal = func();
+  console.log(returnVal);
+}
+
+let getTurkDescription = turk.getDescription.bind(turk);
+
+logReturnVal(getTurkDescription);
+
+// To extract `getDescription` from `turk` and always execute `turk` as its 
+// execution context without changing `logReturnVal` function you can use
+// the `bind` method.
+
+// On line 22, declare global variable `getTurkDescription` and define it
+// by assigning it the value of invoking `bind` with the object property
+// `turk.getDescription` and `turk` as context argument. This permanently
+// binds `turk.getDescription` to `turk` as its contexts.
+
+// Hence on line 24 when `logReturnVal` is invoked by passing it `getTurkDescription`
+// as its argument it outputs the expected out `'Christopher Turk is a Surgeon.'`.

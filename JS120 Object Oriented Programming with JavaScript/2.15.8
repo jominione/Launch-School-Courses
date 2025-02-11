@@ -12,9 +12,20 @@ let foo = {
 };
 
 foo.incrementA();
-foo.incrmenetA();
+foo.incrementA();
 foo.incrementA();
 
 // What will the value of `foo.a` be after this code runs?
 
-// Solution:
+// Solution: The value of `foo.a` will be `0`.
+
+// Each time `foo.incrementA()` gets invoked `this.a` on line 7 references
+// a property of the global object rather a property of `foo`.
+
+// Thus, the property `foo.a` isn't modified by the `icnrement` function;
+// value remains `0`.
+
+// The reason for this is because the inner function `increment` is invoked
+// as a standalone function so its execution context is the global object,
+// not the object `foo` that called the outer function `incrementA` as a
+// method.

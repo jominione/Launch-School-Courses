@@ -21,3 +21,34 @@ The Elder Scrolls: Morrowind
 The Elder Scrolls: Oblivion
 The Elder Scross: Skyrim
 */
+
+// Solution: No it will not. It will output:
+
+/*
+undefined: Arena
+undefined: Daggerfall
+undefined: Morrowind
+undefined: Oblivion
+undefined: Skyrim
+*/
+
+// On line 13, `TESgames` calls the `listGames` method, with `TESgames` as
+// its context. Its function body refers to `this.titles` which is 
+// `TESgames.titles`.
+
+// `listGames` method in turn, calls `forEach` method with `TESgames.titles`
+// array as the caller with a callback function as argument whose body refers to 
+// a different `this` argument as context to the outer `this`.
+
+// `forEach` calls the callback function the `length` of `TESgames.titles` array
+// times with an implicit context.
+
+// The context is determined by how a function is invoked, so the context
+// each invocation of the callback function is the global boject.
+
+// Thus `this` in the function body of the callback function is the global
+// object. `seriesTitle` does not exist in the global object so `this.seriesTitle`
+// is `undefined`.
+
+// The argument passed to the callback function, `title` is the value for
+// each iteration of the `TESgames.titles` array.

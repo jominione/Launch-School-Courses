@@ -17,4 +17,18 @@ let bar = foo.bind(positivity);
 negativity.logMessage = bar;
 negativity.logMessage();
 
-// Solution:
+// Solution: Will output `'JavaScript makes sense!'`.
+
+// On line 15 a global variable `bar` is declared and defined with the value
+// of invoking `bind` method with `foo` function as caller and `positivity` 
+// object as context argument.
+
+// It returns a new function that executes the logic of `foo` with `positivity`
+// as its permanent context.
+
+// On line 17, an object property, `logMessage` is added to `negativity` with
+// the value `bar`.
+
+// On line 18 when function method call `logMessage` on `negativity`, you are
+// invoking the logic of `foo` with `positivity` as its permanent context
+// which outputs the value `'JavaScript makes sense!'`.

@@ -3,3 +3,27 @@
 // as the context argument, it should produce the desired output.
 
 // Solution:
+
+let turk = {
+  firstName: 'Christopher',
+  lastName: 'Turk',
+  occupation: 'Surgeon',
+  getDescription() {
+    return this.firstName + ' ' + this.lastName + ' is a '
+                                + this.occupation + '.';
+  }
+};
+
+function logReturnVal(func, context) {
+  let returnVal = func.call(context);
+  console.log(returnVal);
+}
+
+logReturnVal(turk.getDescription, turk);
+
+// To produce the desired result on line 18 invoke `call` with `func` and
+// explicitly bound `func` with the parameter `context` as the context
+// argument.
+
+// Hence on line 22 when `logReturnVal` is invoked it outputs the expected
+// output.

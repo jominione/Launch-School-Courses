@@ -1,3 +1,27 @@
 // Use an arrow function to achieve the same result.
 
 // Solution:
+
+const TESgames = {
+  titles: ['Arena', 'Daggerfall', 'Morrowin', 'Oblivion', 'Skyrim'],
+  seriesTitle: 'The Elder Scrolls',
+  listGames: function() {
+    this.titles.forEach( title => {
+      console.log(this.seriesTitle + ': ' + title);
+    });
+  }
+};
+
+TESgames.listGames();
+
+// Arrow functions use the execution context from the surrounding context
+// in which they are defined. That means that an arrow function defined inside
+// another function always has the same context as the outer function's
+// execution context at the time the function is defined.
+
+// When you pass a callback function to `forEach`, the value of `this` inside 
+// that callback function depends on how `forEach` calls it. However, `forEach` 
+// itself does not define this explicitly for its callback function.
+
+// Hence, the surrounding function in this case is `listGames` and the context
+// for `listGames` is `TESgames`.
