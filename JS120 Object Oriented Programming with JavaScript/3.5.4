@@ -15,8 +15,14 @@ value of that property.
 
 // Solution - Your function should work with the following code:
 
-function createPayment(services) {
-  // implement the factory function here
+function createPayment(services = {}) {
+  return {
+    phone: services.phone || 0,
+    internet: services.internet || 0,
+    total() {
+      return services.amount || (this.phone + this.internet);
+    },
+  };
 }
 
 function paymentTotal(payments) {

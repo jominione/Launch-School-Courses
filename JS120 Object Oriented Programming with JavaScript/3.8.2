@@ -9,4 +9,18 @@ function Lizard() {
 let lizzy = Lizard();
 lizzy.scamper();
 
-// Solution:
+// Solution: This code will throw an error.
+
+// When you don't use the `new` keyword, the constructor function will act
+// like an ordinary function.
+
+// On line 9, the global variable `lizzy` is declared and defined with
+// the return value of function invocation of `Lizard`. When `Lizard` is
+// invoked, there is no explicit return value so by default will implicit 
+// return `undefined`.
+
+// On line 10, there is a method invocation of `scamper` on `lizzy` function
+// object so it is a method call on `undefined`.
+
+// This causes the call `scamper` to throw an error: you can't call a method
+// on `undefined'.

@@ -1,3 +1,14 @@
-// Wha are two disadvantages of working with factory functions?
+// What are two disadvantages of working with factory functions?
 
-// Solution:
+// Solution: 
+
+// (1) Each object created by a factory function gets copies of the methods
+// defined by the returned object so can use high amounts of memory when
+// creating many objects.
+
+// (2) Objects created by object factories don't have a "type". So when you
+// use a `instanceof` operator or the `constructor` property to determine
+// the type of an object will always return `false`.
+
+// (3) Implementing inheritance using object factories can be more cumbersome
+// and less performance-efficient than the more advanced approaches.

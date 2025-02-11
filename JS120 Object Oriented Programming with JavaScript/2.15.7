@@ -14,6 +14,50 @@ const TESgames = {
 
 TESgames.listGames();
 
+// Think of `forEach` as an implementation of the following:
+
+/*
+
+listGames: function() {
+  for (i = 0; i < this.titles.length; i++) {
+    let title = this.titles[i];
+    title => {
+      console.log(this.seriesTitle + ': ' + title);
+    }
+  };
+}
+
+*/
+
+// Here it is obvious that the arrow function is defined inside `listGames`.
+
+// Note: arrow functions are immediately invoked.
+
+// So even though `.forEach()` is executing the arrow function, the arrow
+// function itself is not inside `.forEach()` but is instead defined inside 
+// `listGames`.
+
+// `TESgames.listGames()` is called, making `this` inside `listGames` refer 
+// to `TESgames`.
+
+// `this.titles.forEach(...)` iterates over `titles`, calling the callback 
+// function (`title => { console.log(this.seriesTitle + ': ' + title); }`).
+
+// Key Part: The callback function is an arrow function, meaning it doesn't 
+// have its own `this`.
+
+// Since arrow functions inherit `this` from their surrounding function at the 
+// time they are defined, `this` inside the arrow function refers to `this`
+// from `listGames()`, which is `TESgames`.
+
+// That is, the arrow function is defined in `listGames`, `forEach` is merely
+// executing the arrow function. So the arrow function gets `this` from `listGames`.
+
+// To clarify even further, the arrow function is being passed as an argument
+// to `forEach` i.e. the arrow function is defined outside `forEach` so cannot
+// inherit `this` from `forEach`.
+
+
 // Arrow functions use the execution context from the surrounding context
 // in which they are defined. That means that an arrow function defined inside
 // another function always has the same context as the outer function's
@@ -21,7 +65,7 @@ TESgames.listGames();
 
 // When you pass a callback function to `forEach`, the value of `this` inside 
 // that callback function depends on how `forEach` calls it. However, `forEach` 
-// itself does not define this explicitly for its callback function.
+// itself does not define `this` explicitly for its callback function.
 
 // Hence, the surrounding function in this case is `listGames` and the context
 // for `listGames` is `TESgames`.
