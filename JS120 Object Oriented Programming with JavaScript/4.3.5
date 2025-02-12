@@ -28,4 +28,10 @@ Goodbye.prototype.bye = function() {
 
 Hello.hi();
 
-// Solution:
+// Solution: Will raise a `TypeError`.
+
+// On line 29 the `hi` is called on the constructor `Hello`, however, the
+// constructor does not inherit from the constructor's prototype object.
+
+// Hence, `hi` is not in the prototype chain of the `Hello` constructor and
+// will raise a `TypeError`.

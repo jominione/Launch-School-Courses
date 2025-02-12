@@ -12,4 +12,14 @@ Ninja.prototype.swingSword = function() {
 
 console.log(ninja.swingSword());
 
-// Solution:
+// Solution: Will output `true`.
+
+// Instances of constructor functions inherit from the constructor's prototype
+// object.
+
+// On line 9 to 10 you've defined a `swingSword` method for the prototype of
+// `Ninja` constructor function.
+
+// Hence on line 13 when you make a method call on `ninja` which is an instance
+// of `Ninja`, it inherits from the constructor prototype `Ninja.prototype`,
+// which then outputs `true`.

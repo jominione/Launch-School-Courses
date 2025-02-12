@@ -22,4 +22,16 @@ let rect1 = new Rectangle(2, 3);
 console.log(rect1.area);
 console.log(rect1.perimeter);
 
-// Solution:
+// Solution: Will output `NaN` and `NaN`.
+
+// On line 16 `this.area` is assigned the method invocation `RECTANGLE.area()`
+// and line 17 `this.perimeter` the method invocation `RECTANGLE.perimeter()`.
+
+// On line 22 and 23 when an instance of the constructor function `Rectangle`,
+// `rect1` is referenced with `area` and `perimeter` they call `RECTANGLE.area()`
+// and `RECTANGLE.perimeter()` respectively.
+
+// These are method invocation so context is the object `RECTANGLE` but
+// neither `width` or `height` exist in `RECTANGLE` hence both method invocation
+// will return `undefined * undefined` and `2 * (undefined + undefined)`
+// which evaluate to `NaN`.

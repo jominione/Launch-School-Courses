@@ -15,4 +15,14 @@ Ninja.prototype = {
 
 console.log(ninja.swingSword());
 
-// Solution:
+// Solution: Will raise an error.
+
+// On lines 10 to 14 we are reassigning the `Ninja.prototype` to a new object.
+
+// When you reassign the constructor prototype, `Ninja.prototype` to a totally 
+// new object instead of mutating the original prototype object, the prototype 
+// of instance of the constructor, `ninja`, does not change. It is still the
+// the original prototype defined during the constructor's invocation.
+
+// Thus, JavaScript can't find `swingSword` in the prototype chain of `ninja`
+// and will raise an error.

@@ -28,4 +28,5 @@ Goodbye.prototype.bye = function() {
 let hello = new Hello();
 hello.bye();
 
-// Solution:
+// Solution: Will raise an TypeError since `bye` method isn't in the protoype 
+// chain `Hello`.

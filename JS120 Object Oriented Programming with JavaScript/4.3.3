@@ -28,4 +28,10 @@ Goodbye.prototype.bye = function() {
 let hello = new Hello();
 hello.greet();
 
-// Solution:
+// Solution: Will output `'undefined'` because missing arguments default to
+// value of `undefined`.
+
+// One line 29 when the `greet` method is invoked, it is a method defined
+// in the `Greeting.prototype` on line 5 to 7. This method takes an argument,
+// value of `message` parameter, but since `greet` is invoked without an
+// argument it defaults to the value `undefined`.

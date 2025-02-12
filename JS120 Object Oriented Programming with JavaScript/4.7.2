@@ -2,7 +2,7 @@
 In the last question, we used a mix-in named `Speed` that contained a `goFast`
 method. We included the mix-in in the `Car` class and then called the `goFast`
 method from an instance of the `Car` class. You may have noticed that the
-string pritned when we call `goFast` includes the name of the type of vehicle
+string printed when we call `goFast` includes the name of the type of vehicle
 we are using. How is that done?
 
 Hint:
@@ -13,3 +13,15 @@ to lookup the definition of `Function.name`.
 */
 
 // Solution:
+
+// We used `this.constructor.name` to determine the `name` property of each
+// class.
+
+// Within `goFast`, `this` refers to the object that invoked the method. In
+// this case, we used the `fastCar` and `fastTruck` instances.
+
+// The `constructor` property of an object references the class that the object
+// belongs to, i.e., `Car` or `Truck`.
+
+// The `constructor` has a `name` property that merely contains the name of
+// the class of as a string, so thats what we output in `goFast`.

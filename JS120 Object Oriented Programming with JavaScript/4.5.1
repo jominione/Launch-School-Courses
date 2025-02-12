@@ -6,7 +6,7 @@ class Game {
   }
 }
 
-class Bishop extends Game {
+class Bingo extends Game {
   rulesOfPlay() {
     // rules of play
   }
@@ -19,4 +19,8 @@ which the `Bingo` class inherits? Explain your answer. What do we call it
 when we define a method like this?
 */
 
-// Solution:
+// Solution: If you add a `play` method to the `Bingo` class and instance
+// invokes this method, it will execute the implementation defined in the 
+// `Bingo` class as the method lookup sequence first looks for the method
+// with that name in its object and if it not defined there, only then looks
+// at the object's prototype.

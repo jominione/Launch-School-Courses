@@ -16,3 +16,8 @@ console.log(ninjaB.swing().swung);    // logs `true`
 */
 
 // Solution:
+
+Ninja.prototype.swing = function() {
+  this.swung = true;
+  return this;
+}
