@@ -1,0 +1,9 @@
+// Which of the following statements are true when discussing higher-order
+// functions in JavaScript? Select all that apply.
+
+// A - Higher-order functions are first-class values.
+// B - Higher-order functions do not take any arguments and don't return useful
+//     values.
+// C - A function that accepts one or more arguments that are themselves
+//     functions is a higher-order function.
+// D - A function that returns a function is a higher-order function.

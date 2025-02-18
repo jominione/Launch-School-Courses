@@ -1,0 +1,25 @@
+// In the following code, the `Animal` function is meant to be used as a
+// constructor.
+
+const Animal = function(species) {
+  this.species = species;
+  return species;
+};
+
+Animal.prototype.sleep = function() {
+  console.log(`The ${this.species} is sleeping`);
+};
+
+let lion = Animal('Panthera leo');
+lion.sleep(); // TypeError
+
+// The constructor should return a new object that can subsequently be used
+// to call the `Animal.prototype.sleep` method. However, this program does
+// not work as intended -- we get a `TypeError` when we try to call `sleep`.
+
+// All of the statements below are true. However, only one of them describes
+// why this code doesn't work the way it should.
+
+// A - The return statement in the constructor returns a string, not an object.
+// B - `Animal` is declared as a constant, not a function.
+// C - `Animal` is invoked without the `new` operator.

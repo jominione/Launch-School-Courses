@@ -1,0 +1,20 @@
+// Examine the following code:
+
+let book = {
+  title: "Snow Crash",
+  author: "Neal Stephenson",
+  getDescription() {
+    return `{title} by ${author}`;
+  },
+};
+
+// desired return value: 'Snow Crash by Neal Stephenson'
+book.getDesciption(); // => ReferenceError: title is not defined
+
+// How would you modify line 5 of this program so that it returns the desired
+// value? Choose all solutions that will produce the correct result.
+
+// A - return "${title} by ${author}";
+// B - return `{self.title} by ${self.author}`;
+// C - return `${this.title} by ${this.author}`;
+// D - return title + ' by ' + author;

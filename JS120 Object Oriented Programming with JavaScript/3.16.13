@@ -1,0 +1,8 @@
+// If `A` is a class, what does `typeof A` return? Answer without running
+// the code.
+
+// A: "class"
+// B: "object"
+// C: "function"
+// D: "undefined"
+// E: undefined

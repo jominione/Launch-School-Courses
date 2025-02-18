@@ -1,0 +1,7 @@
+// Which of the following statements about JavaScript functions are true?
+// Select all that apply.
+
+// A - All JavaScript functions are first-class objects.
+// B - All first-class functions in JavaScript are anonymous functions.
+// C - Function declarations in JavaScript can by anonymous.
+// D - All arrow functions in JavaScript are anonymous functions.

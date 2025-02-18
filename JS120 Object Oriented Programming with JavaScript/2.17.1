@@ -1,0 +1,19 @@
+// Examine the following code:
+
+let foo = {
+  bar: 42,
+  qux() {
+    console.log("Pudding");
+  },
+};
+
+let baz = Object.create(foo);
+baz.qux()
+
+// Which of the following statements about the invocation on line 11 are true?
+// Choose all that apply:
+
+// A - The `baz` object calls a copy of `qux` that the `baz` object owns.
+// B - The `foo` object delegates the invocation of `qux` to the `baz` object.
+// C - The `baz` object delegates the invocation of `qux` to the `foo` object.
+// D - JavaScript raises a `TypeError` exception.

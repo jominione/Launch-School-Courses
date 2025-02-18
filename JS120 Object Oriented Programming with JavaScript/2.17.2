@@ -1,0 +1,22 @@
+// Consider the following code:
+
+let abc = { foo: 1, bar: 2 };
+let pqr = Object.create(abc);
+pqr.qux = 3;
+pqr.bar = 4;
+
+// Without running the code, which of the following code snippets will return
+// `true`? Select all that apply.
+
+// A - 
+console.log(abc.hasOwnProperty('foo'));
+// B - 
+console.log(abc.hasOwnProperty('bar'));
+// C - 
+console.log(abc.hasOwnProperty('qux'));
+// D - 
+console.log(pqr.hasOwnProperty('foo'));
+// E - 
+console.log(pqr.hasOwnProperty('bar'));
+// F - 
+console.log(pqr.hasOwnProperty('qux'));

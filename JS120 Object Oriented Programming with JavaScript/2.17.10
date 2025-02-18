@@ -1,0 +1,12 @@
+// Which of the following statements about hoisting are correct? Choose all
+// of the answers that apply.
+
+// A - Hoisting physically rearranges your program to move your function
+//     declarations to the top of their scope; you can see the hoisted code
+//     in Node.
+// B - Hoisting occurs in most programming languages, but not in JavaScript.
+// C - JavaScript runs programs in two passes; the first pass performs hoisting
+//     other preliminary actions, and the second executes the code.
+// D - Hoisting involves scanning a program for all function definitions before
+//     JavaScript executes the code. It lets your program invoke functions
+//     before it encounters them during the execution phase.

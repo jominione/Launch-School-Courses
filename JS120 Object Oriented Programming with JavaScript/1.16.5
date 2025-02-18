@@ -1,0 +1,35 @@
+// Which of the followign code snippets creates an object with two properties?
+// Select all that apply.
+
+// A:
+
+let cat = {
+  name = "Butterscotch",
+  age = 13
+};
+
+// B:
+
+let cat = {
+  name: "Butterscotch",
+  age: 13
+};
+
+// C:
+
+const cat = {
+  name() {
+    return "Butterscotch";
+  },
+
+  age() {
+    return 13;
+  },
+};
+
+// D:
+
+let cat = {
+  this.name: "Butterscotch",
+  this.age: 13,
+}

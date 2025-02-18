@@ -1,0 +1,17 @@
+// What will the `obj.foo` method return when we invoke it from line 10?
+
+let obj = {
+  foo() {
+    return this;
+  },
+};
+
+let foo = obj.foo;
+foo();
+
+// Try to answer without running the code.
+
+// A - The global object.
+// B - `null`
+// C - `undefined`
+// D - `obj`

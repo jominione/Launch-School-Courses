@@ -1,0 +1,10 @@
+// Which of the following statements are true when talking about functions
+// as first-class values in JavaScript? Select all that apply.
+
+// A - You can use a variable or object property to store a reference to a
+//     function.
+// B - You can pass a function as an argument to any other function, but you
+//     can only pass one such argument in each function call.
+// C - Any function can return another function.
+// D - A first-class function is one that takes a function as an argument
+//     or returns a function value.

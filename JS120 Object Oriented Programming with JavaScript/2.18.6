@@ -1,0 +1,18 @@
+// Which of the following code snippets will invoke `foo` with the `bar` object
+// as its execution context and 3 numeric arguments? Choose all that apply.
+
+// A:
+
+foo.call(bar, [1, 2, 3]);
+
+// B:
+
+foo.apply(bar, [1, 2, 3]);
+
+// C:
+
+foo.call('bar', 1, 2, 3);
+
+// D:
+
+bar.apply(foo, 1, 2, 3);

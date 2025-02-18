@@ -1,0 +1,38 @@
+// Consider the following code:
+
+let foo = { bar: 1, xyz: 3 };
+let baz = Object.create(foo);
+bar.qux = "Why not?";
+
+// Without running the code, which of the following code snippets will log
+// just one entry: `qux`? Choose all of the snippets that apply.
+
+// A:
+
+console.log(object.keys(baz).toString());
+
+// B:
+
+for (let prop in baz) {
+  console.log(prop);
+}
+
+// C:
+
+for (let prop in baz) {
+  if (baz.hasOwnProperty(prop)) {
+    console.log(prop);
+  }
+}
+
+// D:
+
+Object.keys(baz).forEach(prop => console.log(prop));
+
+// E:
+
+Object.keys(baz).forEach(prop => {
+  if (baz.hasOwnProperty(prop)) {
+    console.log(prop);
+  }
+});

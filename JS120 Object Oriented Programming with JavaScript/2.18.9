@@ -1,0 +1,71 @@
+// The code below is similar to the code from the previous problem, differing
+// only with the highlighted code. Without running the code, identify the
+// answer that shows the console output that would result if you were to run
+// this code with Node.js.
+
+function bar() {
+  console.log('good morning');
+}
+
+global.inner = {
+  bar() {
+    console.log('good afternoon');
+  },
+};
+
+let obj = {
+  inner: {
+    bar() {
+      console.log('good night');
+    },
+
+    foo() {
+      bar();
+    },
+  },
+
+  bar() {
+    console.log('wake up');
+  },
+
+  foo() {
+    this.inner.bar();
+    inner.bar();
+    bar();
+  }
+};
+
+let foo = function() {
+  console.log('go to sleep');
+}
+
+function go(foo) {
+  foo();
+}
+
+go(obj.foo);
+
+// Assume that the code is in a separate file and that you used the `node`
+// command to run the file.
+
+/*
+
+A:
+
+go to sleep
+
+B:
+
+This code will raise an error.
+
+C:
+
+good night
+good afternoon
+good morning
+
+D:
+
+good afternoon
+good aftternoon
+good morning

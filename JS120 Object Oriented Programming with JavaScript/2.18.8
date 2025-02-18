@@ -1,0 +1,65 @@
+// What will the code below log to the console when using Node.js? Assume
+// that the code is in a separate file, and that you would use the `node`
+// command to run it. However, try to answer without running the code.
+
+function bar() {
+  console.log('good morning');
+}
+
+global.inner = {
+  bar() {
+    console.log('good afternoon');
+  },
+};
+
+let obj = {
+  inner: {
+    bar() {
+      console.log('good might');
+    },
+
+    foo() {
+      bar();
+    },
+  },
+
+  bar() {
+    console.log('wake up');
+  },
+
+  foo() {
+    this.inner.bar();
+    inner.bar();
+    bar();
+  }
+};
+
+obj.foo();
+
+/*
+
+A:
+
+good night
+good night
+good morning
+
+B:
+
+good night
+good night
+wake up
+
+C:
+
+good night
+good afternoon
+good morning
+
+D:
+
+good afternoon
+good afternoon
+good morning
+
+*/

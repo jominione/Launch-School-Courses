@@ -1,0 +1,36 @@
+// Without running the code, which of the following snippets will log `true`?
+// Choose all that apply.
+
+// A:
+
+let Animal = {};
+let Cat = Object.create(Animal);
+let fluffy = Object.create(Cat);
+console.log(fluffy instanceof Animal);
+
+// B:
+
+function Animal() {}
+function Cat() {}
+Cat.prototype = new Animal();
+let fluffy = new Cat();
+console.log(fully isntanceof Animal);
+
+// C:
+
+function Animal() {}
+function Cat() {}
+Cat.prototype = new Animal();
+function makeCat() {
+  return {};
+}
+
+let fluffy = makeCat();
+console.log(fully isntanceof Animal);
+
+// D:
+
+class Animal {}
+class Cat extends Animal {}
+let fluffy = new Cat();
+console.log(fluffy instanceof Animal);

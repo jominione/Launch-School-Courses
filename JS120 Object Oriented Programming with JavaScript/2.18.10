@@ -1,0 +1,52 @@
+// Examine the following code and its expected output:
+
+let cat = {
+  name: 'Pudding',
+  colors: 'black and white',
+  identify() {
+    let report = function() {
+      console.log(`${this.name} is a ${this.colors} cat.`);
+    };
+    report();
+  },
+};
+
+cat.identify();
+// Exepcted output: Pudding is a black and white cat.
+
+// A:
+
+identify() {
+  let report = function() {
+    console.log(`${this.name} is a ${this.colors} cat.`);
+  }.bind(cat);
+  report();
+}
+
+// B:
+
+identify() {
+  let report = function() {
+    console.log(`${this.name} is a ${this.colors} cat.`);
+  };
+  report.apply(cat);
+}
+
+// C:
+
+identify() {
+  let report = () => {
+    console.log(`${this.name} is a ${this.colors} cat.`);
+  };
+  report();
+}
+
+// D:
+
+identify() {
+  let that = this;
+  let report = function() => {
+    console.log(`${this.name} is a ${this.colors} cat.`);
+  };
+  report();
+}

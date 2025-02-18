@@ -1,0 +1,45 @@
+// Examine the following code:
+
+function Dog() {
+}
+
+function Pet(type) {
+  if (type === 'dog') {
+    return new Dog();
+  } else if (type === 'lion') {
+    return 'not a pet!';
+  }
+}
+
+let dog = new Pet('dog');
+let lion = new Pet('lion');
+let cat = new Pet('cat');
+
+// Without running the code, determine the type of data that the `dog`, `lion`,
+// and `cat` variables would reference if you were to run it.
+
+/*
+
+A:
+
+* dog: a `Pet` object
+* lion: a primitive string value
+* cat: a `Pet` object
+
+B:
+
+* dog: a `Dog` object
+* lion: a `Pet` object
+* cat: a `Pet` object
+
+C:
+
+* dog: a `Pet` object
+* lion: a `Pet` object
+* cat: a `undefined` object
+
+D:
+
+* dog: a `Dog` object
+* lion: a primitive string value
+* cat: a `undefined` object

@@ -1,0 +1,49 @@
+// Examine the following code and its expected output:
+
+let cats = {
+  names: [ 'Butterscotch', 'Pudding', 'Fluffy' ],
+  foo() {
+    [1, 2, 3].forEach(function(number) {
+      console.log(`${number}: ${this.names[number - 1]}`);
+    });
+  },
+};
+
+cats.foo();
+// Expected output:
+// 1: Butterscotch
+// 2: Pudding
+// 3: Fluffy
+
+// A:
+
+foo() {
+  [1, 2, 3].forEach(function(number) {
+    console.log(`${number}: ${names[number - 1]}`);
+  });
+}
+
+// B:
+
+foo() {
+  [1, 2, 3].forEach(function(number) {
+    let that = this;
+    console.log(`${number}: ${that.names[number - 1]}`);
+  });
+}
+
+// C:
+
+foo() {
+  [1, 2, 3].forEach(function(number) {
+    console.log(`${number}: ${names[number - 1]}`);
+  });
+}
+
+// D:
+
+foo() {
+  [1, 2, 3].forEach(function(number) {
+    console.log(`${number}: ${this.names[number - 1]}`);
+  }, this);
+}

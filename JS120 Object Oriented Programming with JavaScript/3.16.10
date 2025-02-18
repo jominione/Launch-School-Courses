@@ -1,0 +1,32 @@
+// Which of the following code snippets shows a class declaration? Select
+// all that apply.
+
+// A:
+
+let Cat = class {
+  // omitted code
+};
+
+// B:
+
+class Cat {
+  // omitted code
+}
+
+// C:
+
+console.log(
+  class Cat {
+    // omitted code
+  }
+);
+
+// D:
+
+function createClass() {
+  return (
+    class Cat {
+      // omitted code
+    }
+  );
+};

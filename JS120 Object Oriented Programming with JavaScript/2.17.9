@@ -1,0 +1,37 @@
+// Assume that each of the following programs is stored in a file that you
+// run with Node.js. For instance, if a program is in `code_x.js`, you can
+// run it with the command `node code_x.js`.
+
+// Which of these programs won't throw an error when you run them? Select
+// all that apply, and try to answer without running the code.
+
+// A:
+
+console.log(sum(3, 4));
+
+const sum = function(number1, number2) {
+  let total = number1 + number2;
+  return total;
+};
+
+// B:
+
+console.log(sum(3, 4));
+
+function sum(number1, number2) {
+  return number1 + number2;
+}
+
+// C:
+
+console.log(sum(3, 4));
+
+const sum = (number1, number2) => number1 + number2;
+
+// D:
+
+(function sum(number1, number2) {
+  return number1 + number2;
+});
+
+console.log(sum(3, 4));

@@ -1,0 +1,16 @@
+// Consider the following code:
+
+class Foo {
+  // omitted code
+}
+
+let foo = new Foo();
+
+// Which of the following methods of the `Foo` class will be called when line
+// 7 gets invoked?
+
+// A - `init`
+// B - `foo`
+// C - `new`
+// D - `constructor`
+// E - `create`

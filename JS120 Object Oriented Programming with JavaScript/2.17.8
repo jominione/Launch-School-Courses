@@ -1,0 +1,32 @@
+// Which of the following code snippets contains at least one function
+// expression? Select all that apply.
+
+// A:
+
+[1, 2, 3].forEach(function (obj) {
+  console.log(obj);
+});
+
+// B:
+
+(function log(obj) {
+  console.log(obj);
+});
+
+// C:
+
+const log = function(obj) {
+  console.log(obj);
+};
+
+// D:
+
+function log(obj) {
+  console.log(obj);
+}
+
+// E:
+
+const log = obj => {
+  console.log(obj);
+}

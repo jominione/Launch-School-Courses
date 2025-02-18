@@ -1,0 +1,91 @@
+// Consider the following code:
+
+function Foo(parm) {
+  this.parm = parm;
+}
+
+Foo.bar = function() {
+  // omitted code
+};
+
+Foo.prototype.qux = function() {
+  // omitted code
+};
+
+let foo = new Foo(10);
+
+// Which of the following code snippets is equivalent to that code?
+
+// A:
+
+class Foo {
+  constructor(parm) {
+    this.parm = parm;
+  }
+
+  static bar() {
+  // omitted code
+  }
+
+  qux() {
+    // omitted code
+  }
+}
+
+let foo = new Foo(10);
+
+// B:
+
+class Foo {
+  constructor(parm) {
+    this.parm = parm;
+  }
+
+  bar() {
+  // omitted code
+  }
+
+  static qux() {
+    // omitted code
+  }
+}
+
+let foo = new Foo(10);
+
+// C:
+
+class Foo {
+  init(parm) {
+    this.parm = parm;
+  }
+
+  static bar() {
+  // omitted code
+  }
+
+  qux() {
+    // omitted code
+  }
+}
+
+let foo = (new Foo(10)).init(10);
+
+// D:
+
+class Foo {
+  constructor(parm) {
+    this.parm = parm;
+  }
+
+  static bar() {
+  // omitted code
+  }
+
+  prototype: {
+    qux() {
+    // omitted code
+    }
+  }
+}
+
+let foo = new Foo(10);
